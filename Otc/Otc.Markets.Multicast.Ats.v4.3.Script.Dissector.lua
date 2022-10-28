@@ -989,7 +989,7 @@ dissect.tier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Flags
-size_of.security_flags = 1
+size_of.security_flags = 2
 
 -- Display: Security Flags
 display.security_flags = function(buffer, packet, parent)
@@ -1061,7 +1061,7 @@ end
 
 -- Dissect: Security Flags
 dissect.security_flags = function(buffer, offset, packet, parent)
-  local size = 1
+  local size = 2
   local range = buffer(offset, size)
   local display = display.security_flags(range, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_3.fields.security_flags, range, display)
@@ -1070,7 +1070,7 @@ dissect.security_flags = function(buffer, offset, packet, parent)
     dissect.security_flags_bits(buffer, offset, packet, element)
   end
 
-  return offset + 1, range
+  return offset + 2, range
 end
 
 -- Size: Primary Market
